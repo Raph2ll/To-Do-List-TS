@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "@types/cors": "^2.8.12",
     "@types/express": "^4.17.14",
     "@types/node": "^18.11.9",
     "@typescript-eslint/eslint-plugin": "^5.45.0",
@@ -12,6 +13,7 @@
     "typescript": "^4.9.3"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "date-fns": "^2.29.3",
     "express": "^4.18.2",
     "mongoose": "^6.7.4",
