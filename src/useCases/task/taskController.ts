@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import StatusCodes from 'http-status-codes';
 import createTask from './taskService';
 
 const create = async (req: Request, res: Response) => {
@@ -6,7 +7,7 @@ const create = async (req: Request, res: Response) => {
     const { description } = req.body;
     const response = await createTask(description);
 
-    return res.status(201).json(response);
+    return res.status(StatusCodes.CREATED).json(response);
   } catch (error) {
     console.log(error);
   }
