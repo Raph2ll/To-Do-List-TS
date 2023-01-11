@@ -5,4 +5,9 @@ const createTask = async (description: string) => {
   return newTask;
 };
 
-export default createTask;
+const listTask = async () => {
+  const response = await Task.find();
+  return response;
+};
+
+export { createTask, listTask };
