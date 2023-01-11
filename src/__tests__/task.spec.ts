@@ -2,7 +2,6 @@ import StatusCodes from 'http-status-codes';
 import request from 'supertest';
 import app from '../api/app';
 import mongoose from 'mongoose';
-import { any } from 'joi';
 
 beforeEach(async () => {
   await mongoose.connect('mongodb://localhost:27017/test');
@@ -38,6 +37,16 @@ describe('To do list tests', () => {
 
       expect(response.status).toBe(StatusCodes.CREATED);
       expect(response.body.description).toBe('Comer macarrão');
+    }
+  );
+  it(
+    'Should be able to get all tasks ',
+    async () => {
+      const response = await request(app)
+        .get('/task');
+
+      expect(response.status).toBe(StatusCodes.OK);
+      expect(response.body).not.toBeNull();
     }
   );
 });
