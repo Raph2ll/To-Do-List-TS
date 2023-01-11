@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import StatusCodes from 'http-status-codes';
-import { createTask } from './taskService';
+import { createTask, listTask } from './taskService';
 import schema from '../../schemas/schemaTask';
 
 const create = async (req: Request, res: Response) => {
@@ -17,4 +17,13 @@ const create = async (req: Request, res: Response) => {
   }
 };
 
-export default create;
+const list = async (req: Request, res: Response) => {
+  try {
+    const response = await listTask();
+    return res.status(StatusCodes.OK).json(response);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export { create, list };
