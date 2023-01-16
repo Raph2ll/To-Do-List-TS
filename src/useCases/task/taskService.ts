@@ -10,4 +10,9 @@ const listTask = async () => {
   return response;
 };
 
-export { createTask, listTask };
+const findTaskDescription = async (description: string) => {
+  const response = await Task.find({ description });
+  return response;
+};
+
+export { createTask, listTask, findTaskDescription };
