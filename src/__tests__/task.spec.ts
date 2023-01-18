@@ -49,4 +49,20 @@ describe('To do list tests', () => {
       expect(response.body).not.toBeNull();
     }
   );
+  it(
+    'Should be able to find a task ',
+    async () => {
+      const response = await request(app)
+        .post('/task/')
+        .send({
+          description: 'Batata'
+        });
+
+      const result = response.body;
+      const data = await request(app).get(`/task/${result.description}`);
+
+      expect(data.status).toBe(StatusCodes.OK);
+
+    }
+  );
 });
